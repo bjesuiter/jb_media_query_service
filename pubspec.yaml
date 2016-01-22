@@ -1,0 +1,32 @@
+name: jb_responsive_breakpoints
+description: A component providing responsive breakpoints from css to angulardart components
+version: 0.0.1
+author: Benjamin Jesuiter <bjesuiter@gmail.com>
+
+#homepage: https://www.example.com
+
+
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+
+dependencies:
+  browser: "^0.10.0+2"
+  angular: "^1.1.2+2"
+  web_components: "^0.12.0+2"
+  logging: "^0.11.2"
+  logging_handlers: "^0.8.0"
+  dart_to_js_script_rewriter: "^0.1.0+4"
+
+dev_dependencies:
+  test: '>=0.12.0 <0.13.0'
+
+transformers:
+- angular:
+    dart_sdk: "D:/sdk/dart"
+- $dart2js:
+    minify: false
+    sourceMaps: true
+    suppressWarnings: false
+    suppressHints: false
+
+- dart_to_js_script_rewriter
