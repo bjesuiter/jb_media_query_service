@@ -8,6 +8,33 @@
 
     <script async type="application/dart" src="app_initialize.dart"></script>
     <script async type="application/javascript" src="packages/browser/dart.js"></script>
+
+
+    <style>
+        p#breaktest {
+            content: "none";
+        }
+
+        @media all and (min-width: 300px) {
+            p#breaktest::after {
+                content: "small";
+            }
+        }
+
+        @media all and (min-width: 600px) {
+            p#breaktest::after {
+                content: "medium";
+            }
+        }
+
+        @media all and (min-width: 900px) {
+            p#breaktest::after {
+                content: "big";
+            }
+        }
+    </style>
+
+
 </head>
 <body>
 
@@ -17,7 +44,10 @@
     When using this component in another project, only the stuff in lib will be imported
 </p>
 
-<jb-responsive-breakpoints> </jb-responsive-breakpoints>
+
+<p id="breaktest"></p>
+
+<jb-responsive-breakpoints></jb-responsive-breakpoints>
 
 </body>
 </html>
