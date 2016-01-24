@@ -11,25 +11,47 @@
 
 
     <style>
-        p#breaktest {
-            content: "none";
+        
+        .ng-cloak {
+            display: none;
+        }
+        
+        jb-responsive-breakpoints {
+            display: none;
+        }
+        
+        jb-responsive-breakpoints::after {
+            /*display: none;*/
+            content: 'none';
         }
 
         @media all and (min-width: 300px) {
-            p#breaktest::after {
+            jb-responsive-breakpoints {
                 content: "small";
+            }
+            
+            jb-responsive-breakpoints::after {
+                content: 'small';
             }
         }
 
         @media all and (min-width: 600px) {
-            p#breaktest::after {
+            jb-responsive-breakpoints {
                 content: "medium";
+            }
+
+            jb-responsive-breakpoints::after {
+                content: 'medium';
             }
         }
 
         @media all and (min-width: 900px) {
-            p#breaktest::after {
+            jb-responsive-breakpoints {
                 content: "big";
+            }
+
+            jb-responsive-breakpoints::after {
+                content: 'big';
             }
         }
     </style>
@@ -44,10 +66,9 @@
     When using this component in another project, only the stuff in lib will be imported
 </p>
 
+<jb-responsive-breakpoints current-breakpoint="currentBreakpoint"></jb-responsive-breakpoints>
 
-<p id="breaktest"></p>
-
-<jb-responsive-breakpoints></jb-responsive-breakpoints>
+<p class="ng-cloak"> Output outside component: {{currentBreakpoint}} </p>
 
 </body>
 </html>
