@@ -7,7 +7,7 @@ import 'package:logging_handlers/logging_handlers_shared.dart';
 
 //import own component
 import 'package:jb_responsive_breakpoints/jb_responsive_breakpoints.dart';
-import 'root-context.dart';
+import 'root_context.dart';
 
 final Logger _libLogger = new Logger("JbResponsiveBreakpoints");
 
