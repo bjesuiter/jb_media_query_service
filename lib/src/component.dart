@@ -21,20 +21,21 @@ class JbResponsiveBreakpoints implements AttachAware {
   Map<String, String> mediaQueries = {};
 
   ///maps min-width values in px to Names for this breakpoint
-  @NgOneWay("breakpoints")
-  Map<int, String> breakpoints = {};
+  @NgTwoWay("breakpoints")
+  Map<int, String> breakpoints;
 
   @NgTwoWay("active-breakpoints")
-  List<String> activeBreakpoints = [];
+  List<String> activeBreakpoints;
 
   void onMediaQueryChange(MediaQueryListEvent event) {
-    _logger.info("MediaQueryChange event: " + event.media);
-    _logger.info("Event.matches: ${event.matches}");
-
     if (event.matches) {
       activeBreakpoints.add(mediaQueries[event.media]);
+      _logger.info("${mediaQueries[event.media]} - Label added to active breakpoints");
+      _logger.info(activeBreakpoints.toString());
     } else {
       activeBreakpoints.remove(mediaQueries[event.media]);
+      _logger.info("${mediaQueries[event.media]} - Label removed from active breakpoints");
+      _logger.info(activeBreakpoints.toString());
     }
   }
 
