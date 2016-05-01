@@ -7,10 +7,11 @@ import 'package:logging_handlers/logging_handlers_shared.dart';
 
 //import own component
 import 'package:jb_responsive_breakpoints/jb_responsive_breakpoints.dart';
+import 'root-context.dart';
 
 final Logger _libLogger = new Logger("JbResponsiveBreakpoints");
 
-void main () {
+void main() {
   //init logging
   hierarchicalLoggingEnabled = true;
   Logger.root.onRecord.listen(new LogPrintHandler());
@@ -23,8 +24,7 @@ void main () {
 
 // Hint for using injector:
 // final injector = applicationFactory().addModule(new SpeedpadApp()).run();
-  final injector = applicationFactory().addModule(new App()).run();
-
+  final injector = applicationFactory().addModule(new App()).rootContextType(RootContext).run();
 }
 
 class App extends Angular.Module {
