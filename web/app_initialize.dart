@@ -24,7 +24,7 @@ void main() {
 
 // Hint for using injector:
 // final injector = applicationFactory().addModule(new SpeedpadApp()).run();
-  final injector = applicationFactory().addModule(new App()).rootContextType(RootContext).run();
+  final injector = applicationFactory().rootContextType(RootContext).addModule(new App()).run();
 }
 
 class App extends Angular.Module {
