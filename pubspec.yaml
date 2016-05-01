@@ -22,8 +22,7 @@ dev_dependencies:
   test: '>=0.12.0 <0.13.0'
 
 transformers:
-- angular:
-    dart_sdk: "D:/sdk/dart"
+- angular
 - $dart2js:
     minify: false
     sourceMaps: true
