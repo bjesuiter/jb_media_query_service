@@ -1,13 +1,10 @@
 library jb_responsive_breakpoints.app_init;
 
-import 'package:angular/application_factory.dart';
-import 'package:angular/angular.dart' as Angular;
+import 'package:angular2/platform/browser.dart';
 import 'package:logging/logging.dart';
 import 'package:logging_handlers/logging_handlers_shared.dart';
-
-//import own component
+import 'package:angular2/core.dart';
 import 'package:jb_responsive_breakpoints/jb_responsive_breakpoints.dart';
-import 'root_context.dart';
 
 final Logger _libLogger = new Logger("JbResponsiveBreakpoints");
 
@@ -22,22 +19,15 @@ void main() {
   // then add specific logger
   //_logger.level = Level.All
 
-// Hint for using injector:
-// final injector = applicationFactory().addModule(new SpeedpadApp()).run();
-  final injector = applicationFactory()
-      .addModule(new App())
-      .rootContextType(RootContext)
-      .run();
+  bootstrap(AppComponent);
 }
 
-class App extends Angular.Module {
+@Component(
+    selector: 'app-root',
+    templateUrl: 'app_component.html',
+    directives: const [JbResponsiveBreakpoints])
+class AppComponent {
+  Map<int, String> breakpoints = {0:'small', 300:'medium', 450:'large', 600:'xlarge'};
 
-  App() {
-    bind(JbResponsiveBreakpoints);
-    // EXAMPLE: bind(StorageService);
-    // EXAMPLE: bind(StorageService, toValue: new StorageService());
-    // EXAMPLE: bind(StorageService, toFactory: (Angular.Injector inj) => new StorageService(inj.get(EventBus)));
-
-  }
-
+  List<String> activeBreakpoints = [];
 }

@@ -28,17 +28,19 @@
     When using this component in another project, only the stuff in lib will be imported
 </p>
 
-<jb-responsive-breakpoints breakpoints="breakpoints"
-                           active-breakpoints="activeBreakpoints">
+<app-root>
 
-</jb-responsive-breakpoints>
+    <jb-responsive-breakpoints breakpoints="breakpoints"
+                               active-breakpoints="activeBreakpoints">
+    </jb-responsive-breakpoints>
 
-<h2>Active Breakpoints:</h2>
-<!--TODO: current error: activeBreakpoints will not be updated by jb-responsive-breakpoints-->
-<ul>
-    <li class="ng-cloak"
-        ng-repeat="breakpoint in activeBreakpoints"
-        ng-bind="breakpoint"></li>
-</ul>
+    <h2>Active Breakpoints:</h2>
+    <!--TODO: current error: activeBreakpoints will not be updated by jb-responsive-breakpoints-->
+    <ul>
+        <li class="ng-cloak"
+            ng-repeat="breakpoint in activeBreakpoints"
+            ng-bind="breakpoint"></li>
+    </ul>
+</app-root>
 </body>
 </html>
