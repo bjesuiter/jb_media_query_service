@@ -6,7 +6,7 @@ import 'package:logging/logging.dart';
 import 'package:angular2/angular2.dart';
 
 @Component(
-    selector: "jb-responsive-breakpoints[active-breakpoints][breakpoints]",
+    selector: "jb-responsive-breakpoints[activeBreakpoints][breakpoints]",
     template: ""
 )
 class JbResponsiveBreakpoints implements AfterViewInit {
