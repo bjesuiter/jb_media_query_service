@@ -1,15 +1,12 @@
 library jb_responsive_breakpoints.component;
 
-import 'dart:async';
 import 'dart:html';
 import 'package:logging/logging.dart';
 
-import 'package:angular/angular.dart';
+import 'package:angular2/angular2.dart';
 
-@Component(
-    selector: "jb-responsive-breakpoints[active-breakpoints][breakpoints]",
-    useShadowDom: true)
-class JbResponsiveBreakpoints implements AttachAware {
+@Component(selector: "jb-responsive-breakpoints[active-breakpoints][breakpoints]",)
+class JbResponsiveBreakpoints implements AfterViewInit {
   final Logger _logger = new Logger("JbResponsiveBreakpoints.Component");
 
   Element node;
@@ -21,10 +18,10 @@ class JbResponsiveBreakpoints implements AttachAware {
   Map<String, String> mediaQueries = {};
 
   ///maps min-width values in px to Names for this breakpoint
-  @NgTwoWay("breakpoints")
+  @Input("breakpoints")
   Map<int, String> breakpoints;
 
-  @NgTwoWay("active-breakpoints")
+  @Input("activeBreakpoints")
   List<String> activeBreakpoints;
 
   void onMediaQueryChange(MediaQueryListEvent event) {
@@ -40,7 +37,7 @@ class JbResponsiveBreakpoints implements AttachAware {
   }
 
   @override
-  void attach() {
+  ngAfterViewInit() {
     //create media query watchers
     breakpoints.forEach((value, label) {
       MediaQueryList mq = window.matchMedia("(min-width: ${value}px)");
