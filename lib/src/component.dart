@@ -5,7 +5,10 @@ import 'package:logging/logging.dart';
 
 import 'package:angular2/angular2.dart';
 
-@Component(selector: "jb-responsive-breakpoints[active-breakpoints][breakpoints]",)
+@Component(
+    selector: "jb-responsive-breakpoints[active-breakpoints][breakpoints]",
+    template: ""
+)
 class JbResponsiveBreakpoints implements AfterViewInit {
   final Logger _logger = new Logger("JbResponsiveBreakpoints.Component");
 
@@ -21,7 +24,7 @@ class JbResponsiveBreakpoints implements AfterViewInit {
   @Input("breakpoints")
   Map<int, String> breakpoints;
 
-  @Input("activeBreakpoints")
+  @Output("activeBreakpoints")
   List<String> activeBreakpoints;
 
   void onMediaQueryChange(MediaQueryListEvent event) {
