@@ -3,8 +3,7 @@ library jb_responsive_breakpoints.app_init;
 import 'package:angular2/platform/browser.dart';
 import 'package:logging/logging.dart';
 import 'package:logging_handlers/logging_handlers_shared.dart';
-import 'package:angular2/core.dart';
-import 'package:jb_responsive_breakpoints/jb_responsive_breakpoints.dart';
+import 'app_component.dart';
 
 final Logger _libLogger = new Logger("JbResponsiveBreakpoints");
 
@@ -20,14 +19,4 @@ void main() {
   //_logger.level = Level.All
 
   bootstrap(AppComponent);
-}
-
-@Component(
-    selector: 'app-root',
-    templateUrl: 'app_component.html',
-    directives: const [JbResponsiveBreakpoints])
-class AppComponent {
-  Map<int, String> breakpoints = {0:'small', 300:'medium', 450:'large', 600:'xlarge'};
-
-  List<String> activeBreakpoints = [];
 }
