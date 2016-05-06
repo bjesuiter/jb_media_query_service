@@ -28,19 +28,6 @@
     When using this component in another project, only the stuff in lib will be imported
 </p>
 
-<app-root>
-
-    <jb-responsive-breakpoints [breakpoints]="breakpoints"
-                               [(activeBreakpoints)]="activeBreakpoints">
-    </jb-responsive-breakpoints>
-
-    <h2>Active Breakpoints:</h2>
-    <!--TODO: current error: activeBreakpoints will not be updated by jb-responsive-breakpoints-->
-    <ul>
-        <li class="ng-cloak"
-            *ngFor="let breakpoint of activeBreakpoints; let i=index"
-        >{{breakpoint}}</li>
-    </ul>
-</app-root>
+<app-root></app-root>
 </body>
 </html>
