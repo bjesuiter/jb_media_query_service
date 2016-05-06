@@ -6,16 +6,14 @@ import 'package:logging/logging.dart';
 import 'package:angular2/angular2.dart';
 
 @Component(
-    selector: "jb-responsive-breakpoints[activeBreakpoints][breakpoints]",
-    template: ""
+    selector: "jb-responsive-breakpoints",
+    templateUrl: "component.html"
 )
 class JbResponsiveBreakpoints implements AfterViewInit {
   final Logger _logger = new Logger("JbResponsiveBreakpoints.Component");
 
-  Element node;
-
-  JbResponsiveBreakpoints(this.node) {
-  }
+//  @ViewChild('debug')
+//  DivElement debugDiv;
 
   ///matches Media Query Strings with their labels
   Map<String, String> mediaQueries = {};
@@ -24,8 +22,10 @@ class JbResponsiveBreakpoints implements AfterViewInit {
   @Input("breakpoints")
   Map<int, String> breakpoints;
 
-  @Output("activeBreakpoints")
-  List<String> activeBreakpoints;
+  @Input("activeBreakpoints")
+  List<String> activeBreakpoints = new List();
+
+  String debug = "";
 
   void onMediaQueryChange(MediaQueryListEvent event) {
     if (event.matches) {
@@ -37,10 +37,14 @@ class JbResponsiveBreakpoints implements AfterViewInit {
       _logger.info("${mediaQueries[event.media]} - Label removed from active breakpoints");
       _logger.info(activeBreakpoints.toString());
     }
+    debug = "";
+    activeBreakpoints.forEach((value) {
+      debug += "$value ";
+    });
   }
 
-  @override
   ngAfterViewInit() {
+
     //create media query watchers
     breakpoints.forEach((value, label) {
       MediaQueryList mq = window.matchMedia("(min-width: ${value}px)");
@@ -51,6 +55,10 @@ class JbResponsiveBreakpoints implements AfterViewInit {
         //add label for current breakpoint to activeBreakpoints list, if breakpoint matches currently
         activeBreakpoints.add(label);
       }
+    });
+
+    activeBreakpoints.forEach((value) {
+      debug += "$value ";
     });
   }
 }

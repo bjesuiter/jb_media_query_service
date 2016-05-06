@@ -1,0 +1,14 @@
+<!--template file for debugging-->
+<style>
+    .ng-cloak {
+        display: none !important;
+    }
+</style>
+
+
+<ul>
+    <li class="ng-cloak"
+        *ngFor="let breakpoint of activeBreakpoints; let i=index"
+    >{{breakpoint}}
+    </li>
+</ul>
