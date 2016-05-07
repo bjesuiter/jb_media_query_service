@@ -19,13 +19,23 @@ class JbResponsiveBreakpoints implements AfterViewInit {
   Map<String, String> mediaQueries = {};
 
   ///maps min-width values in px to Names for this breakpoint
-  @Input("breakpoints")
+  @Input()
   Map<int, String> breakpoints;
 
-  @Input("activeBreakpoints")
-  List<String> activeBreakpoints = new List();
+  @Input()
+  List<String> activeBreakpoints = new List<String>();
+
+  @Output()
+  EventEmitter activeBreakpointsChange = new EventEmitter();
+
+
+  JbResponsiveBreakpoints() {
+    _logger.info("activeBreakpoints list instance in constructor: ${activeBreakpoints.hashCode}");
+  }
 
   String debug = "";
+
+  String test = "TestString - default";
 
   void onMediaQueryChange(MediaQueryListEvent event) {
     if (event.matches) {
@@ -37,14 +47,11 @@ class JbResponsiveBreakpoints implements AfterViewInit {
       _logger.info("${mediaQueries[event.media]} - Label removed from active breakpoints");
       _logger.info(activeBreakpoints.toString());
     }
-    debug = "";
-    activeBreakpoints.forEach((value) {
-      debug += "$value ";
-    });
-  }
+    debug = activeBreakpoints.toString();
+    test = "TestString - OnMediaQueryChange: ${mediaQueries[event.media]}";
+}
 
   ngAfterViewInit() {
-
     //create media query watchers
     breakpoints.forEach((value, label) {
       MediaQueryList mq = window.matchMedia("(min-width: ${value}px)");
@@ -54,11 +61,15 @@ class JbResponsiveBreakpoints implements AfterViewInit {
       if (mq.matches) {
         //add label for current breakpoint to activeBreakpoints list, if breakpoint matches currently
         activeBreakpoints.add(label);
+        activeBreakpointsChange.emit(activeBreakpoints);
       }
     });
 
     activeBreakpoints.forEach((value) {
       debug += "$value ";
     });
+
+    test = "TestString - ngAfterViewInit";
+    _logger.info("activeBreakpoints list instance: ${activeBreakpoints.hashCode}");
   }
 }

@@ -1,6 +1,9 @@
 <!--template file for debugging-->
+<div [textContent]="test">
+</div>
+
 <ul>
-    <li *ngFor="let breakpoint of activeBreakpoints; let i=index"
+    <li *ngFor="let breakpoint of activeBreakpoints"
     >{{breakpoint}}
     </li>
 </ul>
