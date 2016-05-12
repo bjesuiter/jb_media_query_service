@@ -7,7 +7,7 @@ import 'package:angular2/angular2.dart';
 
 @Component(
     selector: "jb-responsive-breakpoints",
-    templateUrl: "component.html"
+    template: ""
 )
 class JbResponsiveBreakpoints implements AfterViewInit {
   final Logger _logger = new Logger("JbResponsiveBreakpoints.Component");
@@ -29,29 +29,25 @@ class JbResponsiveBreakpoints implements AfterViewInit {
   EventEmitter activeBreakpointsChange = new EventEmitter();
 
   ApplicationRef application;
+  Element node;
 
-  JbResponsiveBreakpoints(this.application) {
-    _logger.info("activeBreakpoints list instance in constructor: ${activeBreakpoints.hashCode}");
+  JbResponsiveBreakpoints(this.application, this.node) {
+    node.style.display = "hidden";
   }
-
-  String debug = "";
-
-  String test = "TestString - default";
 
   void onMediaQueryChange(MediaQueryListEvent event) {
     if (event.matches) {
       activeBreakpoints.add(mediaQueries[event.media]);
       _logger.info("${mediaQueries[event.media]} - Label added to active breakpoints");
-      _logger.info(activeBreakpoints.toString());
+//      _logger.info(activeBreakpoints.toString());
     } else {
       activeBreakpoints.remove(mediaQueries[event.media]);
       _logger.info("${mediaQueries[event.media]} - Label removed from active breakpoints");
-      _logger.info(activeBreakpoints.toString());
+//      _logger.info(activeBreakpoints.toString());
     }
-    debug = activeBreakpoints.toString();
 
     application.tick();
-}
+  }
 
   ngAfterViewInit() {
     //create media query watchers
@@ -66,12 +62,5 @@ class JbResponsiveBreakpoints implements AfterViewInit {
         activeBreakpointsChange.emit(activeBreakpoints);
       }
     });
-
-    activeBreakpoints.forEach((value) {
-      debug += "$value ";
-    });
-
-    test = "TestString - ngAfterViewInit";
-    _logger.info("activeBreakpoints list instance: ${activeBreakpoints.hashCode}");
   }
 }
