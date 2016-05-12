@@ -1,17 +1,10 @@
 <!--<ng-content></ng-content>-->
 
-<style>
-    [ng-cloak] {
-        display: none !important;
-    }
-</style>
-
 <jb-responsive-breakpoints [breakpoints]="breakpoints"
                            [(activeBreakpoints)]="activeBreakpoints">
 </jb-responsive-breakpoints>
 
 <h2>Active Breakpoints:</h2>
-<!--TODO: current error: activeBreakpoints will not be updated by jb-responsive-breakpoints-->
 <ul>
     <li *ngFor="let breakpoint of activeBreakpoints; let i=index">
         {{breakpoint}}
