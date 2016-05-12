@@ -28,8 +28,9 @@ class JbResponsiveBreakpoints implements AfterViewInit {
   @Output()
   EventEmitter activeBreakpointsChange = new EventEmitter();
 
+  ApplicationRef application;
 
-  JbResponsiveBreakpoints() {
+  JbResponsiveBreakpoints(this.application) {
     _logger.info("activeBreakpoints list instance in constructor: ${activeBreakpoints.hashCode}");
   }
 
@@ -48,7 +49,8 @@ class JbResponsiveBreakpoints implements AfterViewInit {
       _logger.info(activeBreakpoints.toString());
     }
     debug = activeBreakpoints.toString();
-    test = "TestString - OnMediaQueryChange: ${mediaQueries[event.media]}";
+
+    application.tick();
 }
 
   ngAfterViewInit() {
