@@ -6,7 +6,8 @@ import 'package:logging/logging.dart';
 import 'package:angular2/angular2.dart';
 
 @Component(
-    selector: "jb-responsive-breakpoints"
+    selector: "jb-responsive-breakpoints",
+    template: ""
 )
 class JbResponsiveBreakpoints implements AfterViewInit {
   final Logger _logger = new Logger("JbResponsiveBreakpoints.Component");
@@ -28,10 +29,11 @@ class JbResponsiveBreakpoints implements AfterViewInit {
   EventEmitter activeBreakpointsChange = new EventEmitter();
 
   ApplicationRef application;
-  Element node;
 
-  JbResponsiveBreakpoints(this.application, this.node) {
-    node.style.display = "hidden";
+//  Element node;
+
+  JbResponsiveBreakpoints(this.application /*, this.node*/) {
+//    node.style.display = "hidden";
   }
 
   void onMediaQueryChange(MediaQueryListEvent event) {
