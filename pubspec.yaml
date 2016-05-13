@@ -1,6 +1,6 @@
 name: jb_responsive_breakpoints
 description: A component providing responsive breakpoints from css to angulardart components
-version: 1.0.1
+version: 2.0.0
 author: Benjamin Jesuiter <bjesuiter@gmail.com>
 
 #homepage: https://www.example.com
