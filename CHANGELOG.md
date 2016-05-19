@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.1
+- emits now change events instead of refreshing the whole component tree on media queries
+
 ## 2.0.0
 - updated syntax to Angular 2
 
