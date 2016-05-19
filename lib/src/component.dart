@@ -47,7 +47,10 @@ class JbResponsiveBreakpoints implements AfterViewInit {
 //      _logger.info(activeBreakpoints.toString());
     }
 
-    application.tick();
+    //manual change detection for whole application
+//    application.tick();
+
+    activeBreakpointsChange.emit(activeBreakpoints);
   }
 
   ngAfterViewInit() {
