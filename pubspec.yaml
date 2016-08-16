@@ -1,6 +1,6 @@
 name: jb_responsive_breakpoints
 description: A component providing responsive breakpoints from css to angulardart components
-version: 2.0.2
+version: 2.0.3
 author: Benjamin Jesuiter <bjesuiter@gmail.com>
 
 #homepage: https://www.example.com
@@ -11,7 +11,7 @@ environment:
 
 dependencies:
   browser: ^0.10.0+2
-  angular2: ^2.0.0-beta.19
+  angular2: ^2.0.0-beta.17
   web_components: ^0.12.0+2
   logging: ^0.11.2
   logging_handlers: ^0.8.0

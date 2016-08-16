@@ -1,7 +1,10 @@
 # Changelog
 
+## 2.0.3 
+-downgraded dependencies - angular2 Beta 17
+
 ## 2.0.2
-- updated dependencies
+- updated dependencies - angular2 Beta 19
 
 ## 2.0.1
 - emits now change events instead of refreshing the whole component tree on media queries
