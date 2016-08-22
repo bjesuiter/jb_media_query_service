@@ -27,7 +27,7 @@ transformers:
     platform_pipes:
     - 'package:angular2/common.dart#COMMON_PIPES'
     entry_points:
-     - web/app_initialize.dart,
+     - web/app_initialize.dart
      - example/breakpoint_consumer/breakpoint_consumer.html
 - $dart2js:
     minify: false
