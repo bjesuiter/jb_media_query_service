@@ -4,11 +4,13 @@
                            [(activeBreakpoints)]="activeBreakpoints">
 </jb-responsive-breakpoints>
 
-<h2>Active Breakpoints:</h2>
+<h2>Active Breakpoints outside any component:</h2>
 <ul>
     <li *ngFor="let breakpoint of activeBreakpoints; let i=index">
         {{breakpoint}}
     </li>
 </ul>
 
-<!--<p ng-cloak> {{activeBreakpoints}}</p>-->
+<breakpoint-consumer [activeBreakpoints]="activeBreakpoints" [activeBreakpointsSetter]="activeBreakpoints">
+
+</breakpoint-consumer>
