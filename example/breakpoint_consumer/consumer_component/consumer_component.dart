@@ -6,7 +6,7 @@ import 'package:logging/logging.dart';
     selector: 'breakpoint-consumer',
     templateUrl: 'consumer_component.html',
     directives: const [])
-class AppComponent {
+class ConsumerComponent {
 
   Logger _log = new Logger("consumer_component");
 
