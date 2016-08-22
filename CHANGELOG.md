@@ -4,6 +4,9 @@
 - upgraded dependencies again - angular2 Beta 20
 - added consumer component example to test injecting 
   activeBreakpoints inside components 
+- changed onBreakpointChange EventEmitter to emit new list references 
+  on every breakpoint change
+
 
 ## 2.0.3 
 -downgraded dependencies - angular2 Beta 17
