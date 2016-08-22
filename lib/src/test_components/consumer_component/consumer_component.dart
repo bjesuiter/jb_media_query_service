@@ -6,9 +6,9 @@ import 'package:logging/logging.dart';
     selector: 'breakpoint-consumer',
     templateUrl: 'consumer_component.html',
     directives: const [])
-class ConsumerComponent {
+class ConsumerComponent implements DoCheck, AfterViewInit{
 
-  Logger _log = new Logger("consumer_component");
+  Logger _log = new Logger("jb_responsive_breakpoints.consumer_component");
 
   @Input()
   List<String> activeBreakpoints;
@@ -16,12 +16,27 @@ class ConsumerComponent {
   List<String> _activeBreakpointsSetter;
 
   @Input()
-  set activeBreakpointsSetter(List<String> activeBreakpoints) {
+  set activeBreakpointsSetter(activeBreakpoints) {
     _log.info(
         "activeBreakpointsSetter called with ${activeBreakpoints.fold("", (prevVal, newVal) => "$prevVal, $newVal")}");
+    _activeBreakpointsSetter = activeBreakpoints;
   }
 
   List<String> get activeBreakpointsSetter => _activeBreakpointsSetter;
 
 
+
+  @override
+  ngDoCheck() {
+
+  }
+
+  @override
+  ngAfterViewInit() {
+    _log.info(''' AfterViewInit:
+        ActiveBreakpoints normal: $activeBreakpoints,
+        ActiveBreakpoints setter: $_activeBreakpointsSetter;
+    ''');
+
+  }
 }

@@ -10,7 +10,7 @@ import 'package:angular2/angular2.dart';
     template: ""
 )
 class JbResponsiveBreakpoints implements AfterViewInit {
-  final Logger _logger = new Logger("JbResponsiveBreakpoints.Component");
+  final Logger _logger = new Logger("jb_responsive_breakpoints.component");
 
 //  @ViewChild('debug')
 //  DivElement debugDiv;
@@ -50,7 +50,7 @@ class JbResponsiveBreakpoints implements AfterViewInit {
     //manual change detection for whole application
 //    application.tick();
 
-    activeBreakpointsChange.emit(activeBreakpoints);
+    activeBreakpointsChange.emit(activeBreakpoints.toList());
   }
 
   ngAfterViewInit() {
@@ -63,7 +63,7 @@ class JbResponsiveBreakpoints implements AfterViewInit {
       if (mq.matches) {
         //add label for current breakpoint to activeBreakpoints list, if breakpoint matches currently
         activeBreakpoints.add(label);
-        activeBreakpointsChange.emit(activeBreakpoints);
+        activeBreakpointsChange.emit(activeBreakpoints.toList());
       }
     });
   }

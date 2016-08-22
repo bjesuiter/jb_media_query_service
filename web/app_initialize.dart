@@ -5,7 +5,7 @@ import 'package:logging/logging.dart';
 import 'package:logging_handlers/logging_handlers_shared.dart';
 import 'app_component.dart';
 
-final Logger _libLogger = new Logger("JbResponsiveBreakpoints");
+final Logger _libLogger = new Logger("jb_responsive_breakpoints");
 
 void main() {
   //init logging
