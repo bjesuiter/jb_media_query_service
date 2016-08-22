@@ -1,6 +1,6 @@
 import 'package:angular2/angular2.dart';
 import 'package:jb_responsive_breakpoints/jb_responsive_breakpoints.dart';
-import 'consumer_component/consumer_component.dart';
+import 'package:jb_responsive_breakpoints/src/test_components/consumer_component/consumer_component.dart';
 
 
 @Component(
