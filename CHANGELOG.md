@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.5 
+- updated dependencies, mainly angular2 to 2.2.0
+- removed test folder and entry_point from test folder in angular transformer in pubspec.yaml
+
 ## 2.0.4 
 - upgraded dependencies again - angular2 Beta 20
 - added consumer component example to test injecting 
