@@ -6,7 +6,7 @@ import 'package:logging/logging.dart';
     selector: 'breakpoint-consumer',
     templateUrl: 'consumer_component.html',
     directives: const [CORE_DIRECTIVES])
-class ConsumerComponent AfterViewInit{
+class ConsumerComponent implements AfterViewInit{
 
   Logger _log = new Logger("jb_responsive_breakpoints.consumer_component");
 
