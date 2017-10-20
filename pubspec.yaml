@@ -19,6 +19,14 @@ dependencies:
 
 dev_dependencies:
   test: '>=0.12.25 <0.13.0'
+#  Comment: dart_dev currently not working because pub can't find a suitable dependency version
+#  for dart_style for some unknown reason
+#  https://github.com/Workiva/dart_dev
+#  coverage: ^0.8.0 # dart_dev is currently untested with coverage ^0.9.0
+#  dart_dev: ^1.8.1
+#  dart_style: ^1.0.7
+#  dartdoc: ^0.13.0
+  angular_test: "^1.0.1"
 
 transformers:
 - angular:
