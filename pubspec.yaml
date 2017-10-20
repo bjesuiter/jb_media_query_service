@@ -27,6 +27,7 @@ dev_dependencies:
 #  dart_style: ^1.0.7
 #  dartdoc: ^0.13.0
   angular_test: "^1.0.1"
+  js: 0.6.1
 
 transformers:
 - angular:

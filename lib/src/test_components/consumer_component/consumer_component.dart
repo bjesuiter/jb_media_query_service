@@ -1,11 +1,11 @@
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 import 'package:logging/logging.dart';
 
 
 @Component(
     selector: 'breakpoint-consumer',
     templateUrl: 'consumer_component.html',
-    directives: const [])
+    directives: const [CORE_DIRECTIVES])
 class ConsumerComponent implements DoCheck, AfterViewInit{
 
   Logger _log = new Logger("jb_responsive_breakpoints.consumer_component");

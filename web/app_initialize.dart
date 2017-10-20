@@ -1,6 +1,6 @@
 library jb_responsive_breakpoints.app_init;
 
-import 'package:angular2/platform/browser.dart';
+import 'package:angular/angular.dart';
 import 'package:logging/logging.dart';
 import 'package:logging_handlers/logging_handlers_shared.dart';
 import 'app_component.dart';

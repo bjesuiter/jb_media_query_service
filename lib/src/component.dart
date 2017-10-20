@@ -1,9 +1,10 @@
 library jb_responsive_breakpoints.component;
 
+import 'dart:async';
 import 'dart:html';
 import 'package:logging/logging.dart';
 
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 
 @Component(
     selector: "jb-responsive-breakpoints",
@@ -25,8 +26,10 @@ class JbResponsiveBreakpoints implements AfterViewInit {
   @Input()
   List<String> activeBreakpoints = new List<String>();
 
+  final StreamController _activeBreakpintsEmitter = new StreamController.broadcast();
+
   @Output()
-  EventEmitter activeBreakpointsChange = new EventEmitter();
+  Stream get activeBreakpointsChange => _activeBreakpintsEmitter.stream;
 
   ApplicationRef application;
 
@@ -50,7 +53,7 @@ class JbResponsiveBreakpoints implements AfterViewInit {
     //manual change detection for whole application
 //    application.tick();
 
-    activeBreakpointsChange.emit(activeBreakpoints.toList());
+    _activeBreakpintsEmitter.add(activeBreakpoints.toList());
   }
 
   ngAfterViewInit() {
@@ -63,7 +66,7 @@ class JbResponsiveBreakpoints implements AfterViewInit {
       if (mq.matches) {
         //add label for current breakpoint to activeBreakpoints list, if breakpoint matches currently
         activeBreakpoints.add(label);
-        activeBreakpointsChange.emit(activeBreakpoints.toList());
+        _activeBreakpintsEmitter.add(activeBreakpoints.toList());
       }
     });
   }
