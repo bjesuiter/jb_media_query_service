@@ -10,9 +10,6 @@ import 'package:angular/angular.dart';
 class JbResponsiveBreakpoints implements AfterViewInit {
   final Logger _logger = new Logger("jb_responsive_breakpoints.component");
 
-//  @ViewChild('debug')
-//  DivElement debugDiv;
-
   ///matches Media Query Strings with their labels
   Map<String, String> mediaQueries = {};
 
@@ -30,34 +27,26 @@ class JbResponsiveBreakpoints implements AfterViewInit {
 
   ApplicationRef application;
 
-//  Element node;
 
-  JbResponsiveBreakpoints(this.application /*, this.node*/) {
-//    node.style.display = "hidden";
-  }
+  JbResponsiveBreakpoints(this.application) {}
 
   void onMediaQueryChange(Event event) {
-
     if (event is MediaQueryListEvent) {
-    if (event.matches) {
-      activeBreakpoints.add(mediaQueries[event.media]);
-      _logger.info("${mediaQueries[event.media]} - Label added to active breakpoints");
-//      _logger.info(activeBreakpoints.toString());
-    } else {
-      activeBreakpoints.remove(mediaQueries[event.media]);
-      _logger.info("${mediaQueries[event.media]} - Label removed from active breakpoints");
-//      _logger.info(activeBreakpoints.toString());
-    }
-    //manual change detection for whole application
-//    application.tick();
+      String mediaQueryLabel = mediaQueries[event.media];
+      if (event.matches) {
+        activeBreakpoints.add(mediaQueryLabel);
+        _logger.info("${mediaQueryLabel} - Label added to active breakpoints");
+      } else {
+        activeBreakpoints.remove(mediaQueryLabel);
+        _logger.info("${mediaQueryLabel} - Label removed from active breakpoints");
+      }
+      //manual change detection for whole application
+      //application.tick();
 
       _activeBreakpointsEmitter.add(activeBreakpoints.toList());
-
     } else {
       _logger.severe('onMediaQueryChange was called with an event of different type than MediaQueryListEvent');
     }
-
-
   }
 
   void ngAfterViewInit() {
