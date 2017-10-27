@@ -6,10 +6,7 @@ import 'package:logging/logging.dart';
 
 import 'package:angular/angular.dart';
 
-@Component(
-    selector: "jb-responsive-breakpoints",
-    template: ""
-)
+@Component(selector: "jb-responsive-breakpoints", template: "")
 class JbResponsiveBreakpoints implements AfterViewInit {
   final Logger _logger = new Logger("jb_responsive_breakpoints.component");
 
@@ -26,10 +23,10 @@ class JbResponsiveBreakpoints implements AfterViewInit {
   @Input()
   List<String> activeBreakpoints = new List<String>();
 
-  final StreamController _activeBreakpintsEmitter = new StreamController.broadcast();
+  final StreamController _activeBreakpointsEmitter = new StreamController<List<String>>.broadcast();
 
   @Output()
-  Stream get activeBreakpointsChange => _activeBreakpintsEmitter.stream;
+  Stream get activeBreakpointsChange => _activeBreakpointsEmitter.stream;
 
   ApplicationRef application;
 
@@ -39,7 +36,9 @@ class JbResponsiveBreakpoints implements AfterViewInit {
 //    node.style.display = "hidden";
   }
 
-  void onMediaQueryChange(MediaQueryListEvent event) {
+  void onMediaQueryChange(Event event) {
+
+    if (event is MediaQueryListEvent) {
     if (event.matches) {
       activeBreakpoints.add(mediaQueries[event.media]);
       _logger.info("${mediaQueries[event.media]} - Label added to active breakpoints");
@@ -49,14 +48,19 @@ class JbResponsiveBreakpoints implements AfterViewInit {
       _logger.info("${mediaQueries[event.media]} - Label removed from active breakpoints");
 //      _logger.info(activeBreakpoints.toString());
     }
-
     //manual change detection for whole application
 //    application.tick();
 
-    _activeBreakpintsEmitter.add(activeBreakpoints.toList());
+      _activeBreakpointsEmitter.add(activeBreakpoints.toList());
+
+    } else {
+      _logger.severe('onMediaQueryChange was called with an event of different type than MediaQueryListEvent');
+    }
+
+
   }
 
-  ngAfterViewInit() {
+  void ngAfterViewInit() {
     //create media query watchers
     breakpoints.forEach((value, label) {
       MediaQueryList mq = window.matchMedia("(min-width: ${value}px)");
@@ -66,7 +70,7 @@ class JbResponsiveBreakpoints implements AfterViewInit {
       if (mq.matches) {
         //add label for current breakpoint to activeBreakpoints list, if breakpoint matches currently
         activeBreakpoints.add(label);
-        _activeBreakpintsEmitter.add(activeBreakpoints.toList());
+        _activeBreakpointsEmitter.add(activeBreakpoints.toList());
       }
     });
   }
