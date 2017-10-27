@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.0.0 
+- updates to angular 4.0.0
+- introduces strong mode & checked dart2js 
+(dartdevc not compatible with angular currently)
+
 ## 2.0.5 
 - updated dependencies, mainly angular2 to 2.2.0
 - removed test folder and entry_point from test folder in angular transformer in pubspec.yaml
