@@ -5,6 +5,9 @@ author: Benjamin Jesuiter <bjesuiter@gmail.com>
 
 #homepage: https://www.example.com
 
+web:
+  compiler:
+    debug: dartdevc
 
 environment:
   sdk: '>=1.24.0 <2.0.0'
@@ -33,10 +36,10 @@ transformers:
 - angular:
     entry_points:
      - web/app_initialize.dart
-- $dart2js:
-    minify: false
-    sourceMaps: true
-    suppressWarnings: false
-    suppressHints: false
+#- $dart2js:
+#    minify: false
+#    sourceMaps: true
+#    suppressWarnings: false
+#    suppressHints: false
 
 - dart_to_js_script_rewriter
