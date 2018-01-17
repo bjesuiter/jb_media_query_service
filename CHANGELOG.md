@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.0.1
+- moves some dependencies to dev_dependencies
+
 ## 4.0.0 
 - updates to angular 4.0.0
 - introduces strong mode & checked dart2js 
