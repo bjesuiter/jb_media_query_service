@@ -1,6 +1,6 @@
 # jb_responsive_breakpoints
 
-An Angular 2 Component for being re-used in other Angular2 dart projects
+An Angular Component to provide media-query events in javascript to other Angular Components
 
 #IMPORTANT!!!
 
