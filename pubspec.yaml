@@ -2,8 +2,7 @@ name: jb_responsive_breakpoints
 description: A component providing media query breakpoints from css to angulardart components
 version: 4.0.0
 author: Benjamin Jesuiter <bjesuiter@gmail.com>
-
-#homepage: https://www.example.com
+homepage: https://github.com/bjesuiter
 
 #web:
 #  compiler:
