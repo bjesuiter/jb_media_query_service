@@ -1,5 +1,7 @@
 # Changelog
 
+## 4.0.2 
+- added two dev dependencies back to normal dependencies because of transformer
 ## 4.0.1
 - moves some dependencies to dev_dependencies
 

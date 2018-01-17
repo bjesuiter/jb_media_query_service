@@ -1,7 +1,7 @@
 # Pubspec Documentation for publishing: https://www.dartlang.org/tools/pub/pubspec#documentation
 name: jb_responsive_breakpoints
 description: A component providing media query breakpoints from css to angulardart components
-version: 4.0.1
+version: 4.0.2
 author: Benjamin Jesuiter <bjesuiter@gmail.com>
 homepage: https://github.com/bjesuiter
 # blank value for documentation will make pub create a documentation on pub.dartlang.org
@@ -19,10 +19,10 @@ dependencies:
   angular: ^4.0.0
   logging: ^0.11.3+1
   logging_handlers: ^0.8.0
-
-dev_dependencies:
   web_components: ^0.12.5
   dart_to_js_script_rewriter: ^1.0.3
+
+dev_dependencies:
   test: '>=0.12.25 <0.13.0'
 #  Comment: dart_dev currently not working because pub can't find a suitable dependency version
 #  for dart_style for some unknown reason
