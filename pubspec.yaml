@@ -1,7 +1,7 @@
 # Pubspec Documentation for publishing: https://www.dartlang.org/tools/pub/pubspec#documentation
 name: jb_responsive_breakpoints
 description: A component providing media query breakpoints from css to angulardart components
-version: 4.0.2
+version: 4.0.3
 author: Benjamin Jesuiter <bjesuiter@gmail.com>
 homepage: https://github.com/bjesuiter
 # blank value for documentation will make pub create a documentation on pub.dartlang.org
