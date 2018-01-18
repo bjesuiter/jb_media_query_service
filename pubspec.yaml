@@ -15,19 +15,19 @@ environment:
   sdk: '>=1.24.0 <2.0.0'
 
 dependencies:
-  browser: ^0.10.0+2
-  angular: ^4.0.0
-  logging: ^0.11.3+1
-  logging_handlers: ^0.8.0
-  web_components: ^0.12.5
-  dart_to_js_script_rewriter: ^1.0.3
+  browser: "^0.10.0+2"
+  angular: "^4.0.0"
+  logging: "^0.11.3+1"
+  logging_handlers: "^0.8.0"
+  web_components: "^0.12.5"
+  dart_to_js_script_rewriter: "^1.0.3"
 
 dev_dependencies:
-  test: <0.13.0
+  test: "<0.13.0"
 #  dart_style: ^1.0.7
 #  dartdoc: ^0.13.0
-  angular_test: ^1.0.1
-  js: 0.6.1
+  angular_test: "^1.0.1"
+  js: "0.6.1"
 
 transformers:
 - angular:
