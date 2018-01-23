@@ -11,6 +11,9 @@ documentation:
 #  compiler:
 #    debug: dartdevc
 
+scripts:
+  check-pkg: pana --no-warning --source path .
+
 environment:
   sdk: '>=1.24.0 <2.0.0'
 
