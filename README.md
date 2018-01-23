@@ -11,3 +11,9 @@ JavaScript matchMedia seems not to fire events in Chrome device emulation mode.
 The build system consists of a script system with the 'scripts' package for dart. 
 This works analoguous to the npm scripts feature.  
 https://pub.dartlang.org/packages/scripts#-readme-tab-
+
+## Basic Scripts Commands
+- scripts get 
+- scripts install <package>
+- scripts clean
+- scripts <customScriptName> (see pubspec.yaml)
