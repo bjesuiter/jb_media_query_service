@@ -1,5 +1,8 @@
 # Changelog
 
+## next
+- moved content from./web to ./example
+
 ## 4.0.2 
 - added two dev dependencies back to normal dependencies because of transformer
 ## 4.0.1
