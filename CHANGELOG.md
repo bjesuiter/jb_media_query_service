@@ -1,7 +1,8 @@
 # Changelog
 
-## next
+## 5.0.0
 - moved content from./web to ./example
+- changes architecture to be a more simple media query service
 
 ## 4.0.2 
 - added two dev dependencies back to normal dependencies because of transformer
