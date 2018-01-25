@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.0.1
+- changes package name from jb_responsive_breakpoints to jb_media_query_service
+
 ## 5.0.0
 - moved content from./web to ./example
 - changed architecture to be a more simple media query service instead of a big component 
