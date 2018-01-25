@@ -12,11 +12,12 @@ typedef MediaQueryListener(bool mqMatch);
 @Injectable()
 class JbMediaQueryService {
   final Logger _logger = new Logger("jb_responsive_breakpoints.component");
+  final NgZone _ngZone;
 
   /// Matches Media Query Objects with their registered listeners
   Map<String, List<MediaQueryListener>> mediaQueries = {};
 
-  JbMediaQueryService() {}
+  JbMediaQueryService(this._ngZone) {}
 
   /// Registers a listener for a media query breakpoint
   registerStringQuery(MediaQueryListener listener, String mediaQuery) {
@@ -68,7 +69,9 @@ class JbMediaQueryService {
             'but no event listener could be found!');
       }
 
-      listeners?.forEach((listener) => listener(event.matches));
+      //wrap listener call in ngZone call to execute the listeners in angular zone to fix issues with property binding
+      _ngZone.run(() => listeners?.forEach((listener) => listener(event.matches)));
+
     } else {
       _logger.severe('onMediaQueryChange was called with an event of different type than MediaQueryListEvent');
     }
