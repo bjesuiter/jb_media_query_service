@@ -1,16 +1,10 @@
 <!--<ng-content></ng-content>-->
 
-<jb-responsive-breakpoints [breakpoints]="breakpoints"
-                           [(activeBreakpoints)]="activeBreakpoints">
-</jb-responsive-breakpoints>
-
-<h2>Active Breakpoints outside any component:</h2>
+<h2>Active Breakpoints</h2>
 <ul>
-    <li *ngFor="let breakpoint of activeBreakpoints">
-        {{breakpoint}}
-    </li>
+    <li *ngFor="let breakpoint of activeBreakpoints">{{breakpoint}}</li>
 </ul>
-
-<breakpoint-consumer [activeBreakpoints]="activeBreakpoints" [activeBreakpointsSetter]="activeBreakpoints">
-
-</breakpoint-consumer>
+<div [style.background-color]="color"
+     style="height: 200px; width: 200px">
+    <p>Color Value: {{color}}</p>
+</div>
