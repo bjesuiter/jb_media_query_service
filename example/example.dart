@@ -4,7 +4,6 @@ import 'package:angular/angular.dart';
 import 'package:logging/logging.dart';
 import 'package:logging_handlers/logging_handlers_shared.dart';
 import 'package:jb_responsive_breakpoints/jb_responsive_breakpoints.dart';
-import 'package:jb_responsive_breakpoints/src/test_components/consumer_component/consumer_component.dart';
 
 final Logger _libLogger = new Logger("jb_responsive_breakpoints");
 
@@ -22,22 +21,53 @@ void main() {
   bootstrap(AppComponent);
 }
 
-
 @Component(
     selector: 'app-root',
     templateUrl: 'app_component.html',
-    directives: const [
-      CORE_DIRECTIVES,
-      JbResponsiveBreakpoints,
-      ConsumerComponent
-    ])
-class AppComponent {
-  Map<int, String> breakpoints = {
-    0: 'small',
-    300: 'medium',
-    450: 'large',
-    600: 'xlarge'
+    directives: const [CORE_DIRECTIVES],
+    providers: const [JbMediaQueryService])
+class AppComponent implements OnInit {
+  JbMediaQueryService mqService;
+
+  Map<String, String> colors = {
+    'default': '#aaaaaa',
+    'min300': '#aaaa00',
+    'min600': '#00aaaa',
   };
 
-  List<String> activeBreakpoints = new List<String>();
+  String color = "#aaaaaa";
+
+  List<String> activeBreakpoints = [];
+
+  AppComponent(this.mqService) {}
+
+  @override
+  ngOnInit() {
+    mqService.register(min300, minWidth: 300);
+    mqService.register(min600, minWidth: 600);
+  }
+
+  min300(bool matches) {
+    if (matches) {
+      activeBreakpoints.add('min300');
+      color = colors['min300'];
+    } else {
+      activeBreakpoints.remove('min300');
+      color = colors['default'];
+    }
+
+    _libLogger.fine(activeBreakpoints);
+  }
+
+  min600(bool matches) {
+    if (matches) {
+      color = colors['min600'];
+      activeBreakpoints.add('min600');
+    } else {
+      activeBreakpoints.remove('min600');
+      color = colors['min300'];
+    }
+
+    _libLogger.fine(activeBreakpoints);
+  }
 }
