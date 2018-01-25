@@ -65,15 +65,17 @@ class JbMediaQueryService {
       List<MediaQueryListener> listeners = mediaQueries[event.media];
 
       if (listeners == null) {
-        _logger.severe('Media Query Change was detected for query "${event.media}", '
+        _logger.severe(
+            'Media Query Change was detected for query "${event.media}", '
             'but no event listener could be found!');
       }
 
       //wrap listener call in ngZone call to execute the listeners in angular zone to fix issues with property binding
-      _ngZone.run(() => listeners?.forEach((listener) => listener(event.matches)));
-
+      _ngZone
+          .run(() => listeners?.forEach((listener) => listener(event.matches)));
     } else {
-      _logger.severe('onMediaQueryChange was called with an event of different type than MediaQueryListEvent');
+      _logger.severe(
+          'onMediaQueryChange was called with an event of different type than MediaQueryListEvent');
     }
   }
 }
