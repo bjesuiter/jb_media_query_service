@@ -5,8 +5,8 @@ to media query updates without dealing with matchMedia.
 
 ## How to use 
 
-Declare `JbMediaQueryService` as provider, inject it into your component 
-(called `mqService in example`) and call  
+Declare `JbMediaQueryService` as provider, inject it into your component  
+(called `mqService` in example) and call  
 `mqService.register(callbackFunction, minWidth: 300)`  
  or   
  `mqService.registerStringQuery(callbackFunction, '(minWidth:600px)'`.
