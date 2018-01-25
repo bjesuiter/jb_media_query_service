@@ -1,5 +1,9 @@
 # Changelog
 
+## 5.0.1 +1,+2,+3
+- changes some meta files, like README
+- adds Github contribution templates
+
 ## 5.0.1
 - changes package name from jb_responsive_breakpoints to jb_media_query_service
 
