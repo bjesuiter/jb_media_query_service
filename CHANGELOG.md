@@ -2,7 +2,9 @@
 
 ## 5.0.0
 - moved content from./web to ./example
-- changes architecture to be a more simple media query service
+- changed architecture to be a more simple media query service instead of a big component 
+  with unnecessary complicated bindings
+- adjusted example to fit new JbMediaQueryService
 
 ## 4.0.2 
 - added two dev dependencies back to normal dependencies because of transformer
