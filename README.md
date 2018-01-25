@@ -3,10 +3,6 @@
 An Angular Dart Service to register a listener function 
 to media query updates without dealing with matchMedia.
 
-## Notice: Package renamed
-The Version 5.0 will be the latest version with the package name `jb_responsive_breakpoints`. 
-The new package name is [`jb_media_query_service`](https://pub.dartlang.org/packages/jb_media_query_service).
-
 ## How to use 
 
 Declare `JbMediaQueryService` as provider, inject it into your component 
