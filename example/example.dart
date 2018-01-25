@@ -44,7 +44,7 @@ class AppComponent implements OnInit {
   @override
   ngOnInit() {
     mqService.register(min300, minWidth: 300);
-    mqService.register(min600, minWidth: 600);
+    mqService.registerStringQuery(min600, '(min-width: 600px)');
   }
 
   min300(bool matches) {
