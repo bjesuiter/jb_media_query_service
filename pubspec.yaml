@@ -3,8 +3,9 @@ name: jb_responsive_breakpoints
 description: A component providing media query breakpoints from css to angulardart components
 version: 5.0.0
 author: Benjamin Jesuiter <bjesuiter@gmail.com>
-homepage: https://github.com/bjesuiter
-# A blank value for documentation will make pub create a documentation on pub.dartlang.org
+homepage: https://github.com/bjesuiter/jb_media_query_service
+# A blank value for documentation will make pub
+# create a documentation on pub.dartlang.org
 documentation:
 
 web:
