@@ -1,7 +1,7 @@
 # Pubspec Documentation for publishing: https://www.dartlang.org/tools/pub/pubspec#documentation
 name: jb_media_query_service
 description: A component providing media query breakpoints from css to angulardart components
-version: 5.0.1
+version: 5.0.1+1
 author: Benjamin Jesuiter <bjesuiter@gmail.com>
 homepage: https://github.com/bjesuiter/jb_media_query_service
 # A blank value for documentation will make pub
